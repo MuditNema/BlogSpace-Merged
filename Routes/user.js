@@ -84,7 +84,7 @@ router.post('/loginuser',async(req,res)=>{
 router.get('/getuser/:id' , async (req,res) => {
     try {
         const GetUser = await User.findById(req.params.id);
-        console.log(GetUser);
+        // console.log(GetUser);
         res.send({GetUser,success : true});          
     } catch (error) {
         res.send({error,success : false})

@@ -22,9 +22,6 @@ router.get('/fetchAllblogs',async (req,res,next)=>{
     try {
         //Recieving all the blogs (for a particular user) as an array from our mongoDB
         let blogs = await Blog.find();
-        // blogs = blogs.filter((element) => {
-        //     return !(element.user === req.UserData.id)
-        // })
         res.send(blogs);
     } catch (error) {
         res.send({error : "Error Fetching blogs \n" +  error});
@@ -93,12 +90,12 @@ router.delete('/deleteallblogs',fetchUser,async (req,res,next)=>{
     try {
         //getting all the blogs via the userId in an array
         const blogs = await Blog.find({user : req.UserData.id});
-        console.log(blogs);
+        // console.log(blogs);
         if(!blogs){
             return res.send({error : "User has 0 Blogs currently"});
         }
         const result = await Blog.deleteMany({user : req.UserData.id});
-        console.log(result);
+        // console.log(result);
         //deleting the blog from mongoDB
         // const result = await Blog.findByIdAndDelete(req.params.id);
         res.send({result});
