@@ -4,7 +4,6 @@ const { body, validationResult } = require('express-validator')
 const router = express.Router();
 const Blog = require('../Database/models/Blog');
 const fetchUser = require('../middleware/fetchUser');
-const JWT_SECRET = 'fs9f@#G6Ry+6TEmmgJD!FrEc*T4pqhD5EJz.25SQUJgAg';
 
 app.use(express.json());
 
